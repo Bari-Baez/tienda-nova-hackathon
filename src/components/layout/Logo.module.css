@@ -1,0 +1,29 @@
+.root {
+  display: inline-grid;
+  gap: 0.28rem;
+  justify-items: start;
+}
+
+.image {
+  height: clamp(19px, 2.1vw, 25px);
+  width: auto;
+}
+
+/* «Dominicana» no está en el logotipo oficial: va como bajada tipográfica,
+   alineada al ancho del logotipo. */
+.sub {
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  padding-left: 0.1em;
+}
+
+.compact .image {
+  height: 18px;
+}
+
+.compact .sub {
+  display: none;
+}

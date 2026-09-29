@@ -1,0 +1,4 @@
+# Finales de línea consistentes entre Windows y el hosting
+* text=auto eol=lf
+*.webp binary
+*.woff2 binary

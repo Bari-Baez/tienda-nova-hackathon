@@ -1,0 +1,125 @@
+.root {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Línea que une los nodos */
+.item::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink-line);
+}
+
+.item:first-child::before {
+  left: 5px;
+}
+
+.item:last-child {
+  flex: 0 0 auto;
+}
+
+.item:last-child::before {
+  display: none;
+}
+
+.done::before,
+.active::before {
+  background: var(--ink-3);
+}
+
+.node {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+  justify-items: start;
+  padding-right: 1rem;
+  min-height: 44px;
+  align-content: start;
+  text-align: left;
+}
+
+.node:disabled {
+  cursor: default;
+}
+
+.dot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-line);
+  background: var(--paper);
+  transition: all var(--dur) var(--ease-out);
+}
+
+.done .dot {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.active .dot {
+  background: var(--c);
+  border-color: var(--c);
+  box-shadow: 0 0 0 4px rgba(0, 150, 214, 0.16);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.done .label {
+  color: var(--ink-3);
+}
+
+.active .label {
+  color: var(--ink);
+}
+
+.node:not(:disabled):hover .dot {
+  border-color: var(--ink);
+}
+
+/* En móvil solo los nodos: la etiqueta del paso ya la da el titular. */
+@media (max-width: 620px) {
+  .label {
+    display: none;
+  }
+
+  .node {
+    padding-right: 0;
+    min-height: 32px;
+  }
+
+  .item {
+    flex: 1;
+  }
+
+  .item::before {
+    top: 5px;
+  }
+}

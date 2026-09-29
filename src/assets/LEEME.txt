@@ -1,0 +1,36 @@
+ASSETS DEL PROYECTO
+===================
+
+Coloque aquí los archivos definitivos y reemplace los marcadores de posición.
+Ninguna imagen es obligatoria: el sitio funciona y se ve completo sin ellas.
+
+1) LOGO PLAZA GRAFICA
+   Archivo sugerido: logo-plaza-grafica.svg
+   Hoy se muestra un marcador tipografico (src/components/Logo.tsx).
+   Para usar el real, en Logo.tsx:
+       import logo from '../assets/logo-plaza-grafica.svg';
+       ...
+       <img src={logo} alt="Plaza Grafica Dominicana" className={s.image} />
+   y elimine el bloque marcado como PLACEHOLDER.
+
+2) LOGO KONICA MINOLTA
+   Archivo sugerido: logo-konica-minolta.svg
+   NO se incluye ningun logo inventado. Mientras no exista el asset
+   autorizado por la marca, el Hero solo muestra la mencion en texto.
+   Slot preparado y comentado en src/components/Hero.tsx.
+
+3) FOTOS DE EQUIPOS (opcional, mejoran mucho la seccion "Tecnologia en accion")
+   accuriopress-c5080.webp
+   epson-p7570.webp
+   valloy-duoblade-fx.webp
+   techkon-spectro-dens.webp
+
+   Formato recomendado: WebP, 1200 px de ancho, menos de 180 KB, fondo oscuro
+   o recortado. Para activarlas, en src/data/event.ts:
+       import accurio from '../assets/accuriopress-c5080.webp';
+       ...
+       { id: 'accuriopress', ..., image: accurio }
+   Si no hay foto, se dibuja una lamina grafica generada en SVG.
+
+4) IMAGEN PARA COMPARTIR (WhatsApp / correo)
+   /public/og-cover.jpg  ->  1200 x 630 px

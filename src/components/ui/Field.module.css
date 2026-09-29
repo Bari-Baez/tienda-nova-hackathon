@@ -1,0 +1,107 @@
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.labelText {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.labelDetail {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--ink-4);
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.16em;
+  color: var(--ink-4);
+}
+
+.shell {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  min-height: 58px;
+  padding: 0.9rem 1.05rem;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-field);
+  transition:
+    border-color var(--dur) var(--ease-out),
+    background var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--ink-4);
+  font-weight: 400;
+}
+
+.input:hover {
+  border-color: var(--ink-3);
+}
+
+.input:focus {
+  outline: none;
+  background: var(--paper-raised);
+  border-color: var(--c);
+  box-shadow: 0 0 0 3px rgba(0, 150, 214, 0.14);
+}
+
+.hasError .input {
+  border-color: rgba(229, 35, 27, 0.6);
+  background: rgba(229, 35, 27, 0.03);
+}
+
+.hasError .input:focus {
+  box-shadow: 0 0 0 3px rgba(229, 35, 27, 0.14);
+}
+
+.hint {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink-4);
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8125rem;
+  color: var(--red);
+}
+
+.errorMark {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--red);
+  flex: none;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--ink);
+  -webkit-box-shadow: 0 0 0 1000px var(--paper-raised) inset;
+  caret-color: var(--ink);
+}

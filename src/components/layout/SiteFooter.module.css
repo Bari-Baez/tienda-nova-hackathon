@@ -1,0 +1,60 @@
+.footer {
+  position: relative;
+  padding-block: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--ink-line-soft);
+}
+
+.inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+}
+
+.brand {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.line {
+  font-size: 0.8125rem;
+  color: var(--ink-4);
+}
+
+.right {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: end;
+  text-align: right;
+  max-width: 46ch;
+}
+
+.mail {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--ink-line);
+  transition: border-color var(--dur) var(--ease-out);
+}
+
+.mail:hover {
+  border-color: var(--c);
+}
+
+.privacy {
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--ink-4);
+}
+
+@media (max-width: 720px) {
+  .inner {
+    flex-direction: column;
+  }
+
+  .right {
+    justify-items: start;
+    text-align: left;
+  }
+}

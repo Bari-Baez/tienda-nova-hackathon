@@ -1,0 +1,476 @@
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+  contain: layout;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: center;
+}
+
+.info {
+  display: grid;
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+  align-content: center;
+}
+
+.title {
+  max-width: 14ch;
+  font-size: var(--fs-h2);
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.sectionLead {
+  max-width: 48ch;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+.active {
+  display: grid;
+  gap: 0.7rem;
+  min-height: 12.5rem;
+  align-content: start;
+  padding-top: clamp(1rem, 2.5vw, 1.6rem);
+  border-top: 1px solid var(--ink-line);
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  min-height: 28px;
+}
+
+.category {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+}
+
+.brandLogo {
+  width: auto;
+  max-width: 9.5rem;
+  height: 26px;
+  object-fit: contain;
+}
+
+.whiteBacking {
+  background: var(--paper-raised);
+}
+
+.slideBrand {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.brandTitle {
+  overflow: hidden;
+  padding-block: 0.05em;
+  font-size: 3rem;
+  line-height: 1.02;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.brandTitle span {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform;
+}
+
+.modelName {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  color: var(--ink-2);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.modelName > span {
+  flex: none;
+  font-family: var(--font-mono);
+  color: var(--ink-4);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 42ch;
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  color: var(--ink-3);
+  background: transparent;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-pill);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  transition: color var(--dur) var(--ease-out), background var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+  text-align: left;
+}
+
+.chip:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--c);
+  outline-offset: 2px;
+}
+
+.chipActive,
+.chipActive:hover {
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.chipIndex {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  opacity: 0.68;
+}
+
+.chipCopy {
+  display: grid;
+  gap: 0.08rem;
+  min-width: 0;
+}
+
+.chipCopy strong {
+  color: currentColor;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.chipCopy > span {
+  color: currentColor;
+  font-size: 0.7rem;
+  font-weight: 450;
+  line-height: 1.25;
+  opacity: 0.68;
+}
+
+.deckWrap {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  min-width: 0;
+}
+
+.deck {
+  position: relative;
+  width: 100%;
+  max-height: 35rem;
+  aspect-ratio: 1 / 1;
+  outline: none;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.deck:focus-visible {
+  outline: 2px solid var(--c);
+  outline-offset: 10px;
+  border-radius: var(--r-sheet);
+}
+
+.deck:active {
+  cursor: grabbing;
+}
+
+.wash {
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, var(--accent) 0%, transparent 68%);
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  transition: background var(--dur-slow) var(--ease-out);
+}
+
+.slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 84%;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-line-soft);
+  border-radius: var(--r-sheet);
+  box-shadow: var(--lift-3);
+  overflow: hidden;
+  will-change: transform, filter, opacity;
+}
+
+.slideHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 50px;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ink-line-soft);
+}
+
+.slideLogo {
+  width: auto;
+  max-width: 8.5rem;
+  height: 22px;
+  object-fit: contain;
+}
+
+.slideIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.16em;
+  color: var(--ink-4);
+}
+
+.productLink {
+  display: block;
+  color: inherit;
+  outline: none;
+}
+
+.slideBody {
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  background: var(--paper);
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.imageFallback {
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--ink-3);
+}
+
+.externalCue {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 34px;
+  padding: 0.4rem 0.65rem;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper-raised) 92%, transparent);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-pill);
+  box-shadow: var(--lift-1);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  transition: background var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.externalCue > span {
+  font-size: 0.88rem;
+}
+
+.productLink:hover .externalCue,
+.productLink:focus-visible .externalCue {
+  background: var(--paper-raised);
+  transform: translateY(-2px);
+}
+
+.productLink:focus-visible .slideBody {
+  box-shadow: inset 0 0 0 2px var(--c);
+}
+
+.slideBar {
+  display: flex;
+  gap: 2px;
+  padding: 0.6rem 1rem 0.7rem;
+}
+
+.slideBar i {
+  display: block;
+  flex: 1;
+  height: 6px;
+  border-radius: 1px;
+}
+
+.controls {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--ink);
+  border: 1px solid var(--ink-line);
+  border-radius: 50%;
+  transition: color var(--dur) var(--ease-out), background var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.arrow:hover,
+.arrow:focus-visible {
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.arrow:focus-visible {
+  outline: 2px solid var(--c);
+  outline-offset: 2px;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+}
+
+.counter b {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.counter i {
+  display: block;
+  width: 18px;
+  height: 1px;
+  background: var(--ink-line);
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .title {
+    max-width: 18ch;
+  }
+
+  .active {
+    min-height: 12.5rem;
+  }
+
+  .brandTitle {
+    font-size: 2.35rem;
+  }
+
+  .deck {
+    max-width: 29rem;
+    max-height: none;
+    aspect-ratio: 4 / 5.8;
+  }
+
+  .slide {
+    width: 88%;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .statusRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .active {
+    min-height: 14.5rem;
+  }
+
+  .brandTitle {
+    font-size: 2rem;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .chip {
+    width: 100%;
+    justify-content: flex-start;
+    padding-block: 0.62rem;
+  }
+
+  .deck {
+    aspect-ratio: 4 / 6.2;
+  }
+
+  .externalCue {
+    top: 0.55rem;
+    right: 0.55rem;
+    min-height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .externalCue,
+  .chip,
+  .arrow {
+    transition: none;
+  }
+}

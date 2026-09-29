@@ -1,0 +1,592 @@
+/* ============================================================
+   El pliego del formulario — nace del botón de confirmar
+   ============================================================ */
+
+.sheet {
+  width: 100%;
+  max-width: 46rem;
+  background: var(--paper-raised);
+  color: var(--ink);
+  border: 1px solid var(--ink-line-soft);
+  border-radius: var(--r-sheet);
+  box-shadow: var(--lift-3);
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  gap: clamp(1.35rem, 3.2vh, 2rem);
+  padding: clamp(1.3rem, 4vw, 2.4rem);
+}
+
+.form {
+  display: grid;
+  gap: clamp(1.35rem, 3vh, 2rem);
+}
+
+.stage {
+  outline: none;
+  /* Altura mínima estable: los pasos no dan saltos al cambiar. */
+  min-height: clamp(230px, 30vh, 300px);
+}
+
+.stage:focus-visible {
+  outline: none;
+}
+
+.step {
+  display: grid;
+  gap: clamp(1.25rem, 3vh, 1.85rem);
+}
+
+/* --- Pantalla de contexto, antes del progreso --- */
+
+.intro {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.introLead {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 1.2rem;
+}
+
+.introNumber {
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  aspect-ratio: 1;
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.introList {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.15rem 0 0 1.5rem;
+  border-top: 1px solid var(--ink-line-soft);
+  color: var(--ink-2);
+}
+
+.introList li {
+  padding-left: 0.35rem;
+  line-height: 1.5;
+}
+
+/* --- Encabezado del paso --- */
+
+.head {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.stepMark {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+
+.stepDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c);
+}
+
+.title {
+  font-size: clamp(1.45rem, 4.2vw, 2.1rem);
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.sub {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-3);
+  max-width: 46ch;
+}
+
+.fields {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* --- Invitados y correos dinámicos --- */
+
+.attendeeList,
+.preferenceList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.attendeeGroup {
+  min-width: 0;
+  margin: 0;
+  padding: 0 0 1.45rem;
+  border: 0;
+  border-bottom: 1px solid var(--ink-line-soft);
+}
+
+.attendeeLegend {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.attendeeFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.fullField {
+  grid-column: 1 / -1;
+}
+
+.removeButton {
+  min-height: 36px;
+  padding: 0 0.3rem;
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--red);
+  border-bottom: 1px solid transparent;
+}
+
+.removeButton:hover {
+  border-color: currentColor;
+}
+
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 0.7rem;
+  min-height: 48px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.addIcon {
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-radius: 50%;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.addButton:hover .addIcon {
+  background: var(--c);
+}
+
+.contactRow {
+  padding-bottom: 1.3rem;
+  border-bottom: 1px solid var(--ink-line-soft);
+}
+
+/* --- Grupos de opciones --- */
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.legend {
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.legendSmall {
+  padding: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.options {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.optionsCompact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.option {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-field);
+  cursor: pointer;
+  transition:
+    border-color var(--dur) var(--ease-out),
+    background var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.option:hover {
+  border-color: var(--ink-3);
+  background: var(--paper);
+}
+
+.optionActive {
+  border-color: var(--accent);
+  background: var(--paper);
+  box-shadow: inset 3px 0 0 var(--accent), var(--lift-1);
+}
+
+.option:has(.srInput:focus-visible) {
+  outline: 2px solid var(--c);
+  outline-offset: 3px;
+}
+
+.srInput:focus-visible + .optionMark {
+  outline: 2px solid var(--c);
+  outline-offset: 3px;
+}
+
+.srInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.optionMark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-3);
+  border: 1px solid var(--ink-line);
+  border-radius: 8px;
+  transition: all var(--dur) var(--ease-out);
+}
+
+.optionActive .optionMark {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper-raised);
+  font-weight: 700;
+}
+
+.optionBody {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.optionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.optionSupport {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--ink-3);
+}
+
+.optionCheck {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--ink-line);
+  border-radius: 50%;
+  transition: all var(--dur) var(--ease-out);
+}
+
+.optionActive .optionCheck {
+  border-color: var(--accent);
+  background: radial-gradient(circle at center, var(--accent) 0 4.5px, transparent 5px);
+}
+
+.fieldsetError {
+  font-size: 0.8125rem;
+  color: var(--red);
+}
+
+.schedule {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.2rem 0 0;
+  padding: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--ink-line-soft);
+  border-radius: var(--r-field);
+}
+
+.scheduleLegend {
+  padding: 0 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  color: var(--ink);
+}
+
+.scheduleSupport {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink-4);
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.timeOption {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 44px;
+  padding: 0.55rem 0.7rem;
+  text-align: center;
+  color: var(--ink-3);
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: color var(--dur) var(--ease-out), background var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.timeOption:hover {
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+.timeOption:has(.srInput:focus-visible) {
+  outline: 2px solid var(--c);
+  outline-offset: 2px;
+}
+
+.timeOptionActive {
+  color: var(--paper-raised);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.timeOptionActive:hover {
+  color: var(--paper-raised);
+  border-color: var(--ink);
+}
+
+.preferenceGroup {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 1.55rem;
+  border-bottom: 1px solid var(--ink-line-soft);
+}
+
+.preferenceHead {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.preferenceIndex {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+  color: var(--ink-4);
+}
+
+.preferenceHead h3 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.preferenceHead p {
+  color: var(--ink-4);
+  font-size: 0.8125rem;
+}
+
+.applyAll {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem;
+  background: var(--paper);
+  border-block: 1px solid var(--ink-line-soft);
+}
+
+.applyAllTitle {
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.applyAllText {
+  margin-top: 0.2rem;
+  color: var(--ink-4);
+  font-size: 0.8125rem;
+}
+
+.applyButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.applyButtons button {
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  color: var(--ink-2);
+  background: var(--paper-raised);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--r-pill);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.applyButtons button:hover {
+  color: var(--ink);
+  border-color: var(--c);
+}
+
+/* --- Honeypot --- */
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- Acciones --- */
+
+.actions {
+  display: grid;
+  gap: 0.9rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--ink-line-soft);
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.privacy {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-4);
+  max-width: 56ch;
+}
+
+.submitError {
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #8c1410;
+  background: rgba(229, 35, 27, 0.07);
+  border: 1px solid rgba(229, 35, 27, 0.35);
+  border-radius: var(--r-field);
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 560px) {
+  .introLead {
+    grid-template-columns: 1fr;
+  }
+
+  .introNumber {
+    width: 3.5rem;
+  }
+
+  .attendeeFields,
+  .optionsCompact {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    grid-template-columns: 32px minmax(0, 1fr) 18px;
+    gap: 0.75rem;
+    padding: 0.85rem 0.85rem;
+  }
+
+  .optionMark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .actionRow {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .applyButtons {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .applyButtons button {
+    width: 100%;
+  }
+
+  .timeGrid {
+    grid-template-columns: 1fr;
+  }
+}

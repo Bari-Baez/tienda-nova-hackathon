@@ -1,0 +1,260 @@
+.root {
+  display: grid;
+  gap: 1.15rem;
+  align-content: start;
+}
+
+/* --- Sello: las cuatro planchas entran en registro --- */
+
+.stamp {
+  position: relative;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 0.35rem;
+}
+
+.plate {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 3px;
+  mix-blend-mode: multiply;
+}
+
+.plateC {
+  top: 0;
+  left: 0;
+  background: var(--c);
+}
+
+.plateM {
+  top: 0;
+  right: 0;
+  background: var(--m);
+}
+
+.plateY {
+  bottom: 0;
+  left: 6px;
+  background: var(--y);
+}
+
+/* La plancha de negro cae al final y sobre ella se traza el check. */
+.plateK {
+  top: 14px;
+  left: 14px;
+  background: var(--ink);
+  mix-blend-mode: normal;
+}
+
+.check {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 58px;
+  height: 58px;
+}
+
+/* --- Texto --- */
+
+.title {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.text {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--ink-3);
+  max-width: 46ch;
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--ink-4);
+}
+
+.note strong {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.attendees {
+  display: grid;
+  gap: 0.55rem;
+  padding-block: 0.85rem;
+  border-block: 1px solid var(--ink-line-soft);
+}
+
+.attendees ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.25rem;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.attendees li {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.attendees li span {
+  color: var(--ink-4);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* --- Resumen --- */
+
+.recap {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 0.35rem;
+  background: var(--ink-line-soft);
+  border: 1px solid var(--ink-line-soft);
+  border-radius: var(--r-sheet);
+  overflow: hidden;
+}
+
+.recap > div {
+  background: var(--paper);
+  padding: 1rem 1.05rem;
+}
+
+.recap dt {
+  margin-bottom: 0.45rem;
+}
+
+.recap dd {
+  display: grid;
+  gap: 0.1rem;
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+.recap dd strong {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.appointment {
+  display: grid;
+  grid-template-columns: 3px minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  background: rgba(0, 150, 214, 0.06);
+  border: 1px solid rgba(0, 150, 214, 0.28);
+  border-radius: var(--r-field);
+}
+
+.appointmentBar {
+  width: 3px;
+  grid-row: 1 / span 2;
+  background: var(--c);
+  border-radius: 2px;
+}
+
+.appointment ul {
+  display: grid;
+  grid-column: 2;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --- Acciones --- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-top: 0.35rem;
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 48px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  border-bottom: 1px solid transparent;
+  transition: color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+
+.mapLink:hover {
+  color: var(--ink);
+  border-color: var(--c);
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding-top: 1.2rem;
+  margin-top: 0.35rem;
+  border-top: 1px solid var(--ink-line-soft);
+  color: var(--ink-4);
+  font-size: 0.8125rem;
+}
+
+.textLink {
+  min-height: 40px;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--ink-line);
+  transition: color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
+}
+
+.textLink:hover {
+  color: var(--ink);
+  border-color: var(--c);
+}
+
+@media (max-width: 560px) {
+  .recap {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .mapLink {
+    justify-content: center;
+  }
+}
+
+/* Contacto directo antes del evento */
+.contact {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-3);
+}
+
+.contact a {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink-line);
+  transition: border-color var(--dur) var(--ease-out);
+}
+
+.contact a:hover {
+  border-color: var(--c);
+}

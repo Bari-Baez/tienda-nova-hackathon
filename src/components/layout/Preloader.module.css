@@ -1,0 +1,55 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  padding: var(--gutter);
+}
+
+.center {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+.word {
+  display: grid;
+  justify-items: center;
+  gap: 0.05em;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 13vw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  text-align: center;
+}
+
+.line {
+  display: block;
+  white-space: nowrap;
+}
+
+.letter {
+  display: inline-block;
+  will-change: transform, filter;
+}
+
+.plates {
+  display: flex;
+  gap: 3px;
+}
+
+.plate {
+  display: block;
+  width: clamp(34px, 9vw, 62px);
+  height: 5px;
+  border-radius: 1px;
+  transform-origin: left center;
+}
+
+.caption {
+  color: var(--ink-4);
+  text-align: center;
+}

@@ -156,7 +156,7 @@ export default function Dashboard() {
     let active = true;
     const controller = new AbortController();
     let objectUrl: string | null = null;
-    fetch(`/api/claims/${encodeURIComponent(selected.id)}/photo`, {
+    fetch(`/api/photo?id=${encodeURIComponent(selected.id)}`, {
       headers: { Authorization: `Bearer ${token}` }, signal: controller.signal, cache: 'no-store',
     }).then(response => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
